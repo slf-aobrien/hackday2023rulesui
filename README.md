@@ -28,3 +28,8 @@ Storybook is used for component testing more info can be found at their [website
 ```
 npm run storybook
 ```
+
+# Adding Material UI
+```
+npm install @mui/material @emotion/react @emotion/styled
+```
