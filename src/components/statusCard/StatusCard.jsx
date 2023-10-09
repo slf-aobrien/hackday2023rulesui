@@ -1,12 +1,6 @@
 import React, {useState} from "react";
 import Card from "@mui/material/Card"
-import { CardContent, CardHeader, CardActions } from "@mui/material";
-import Grid from "@mui/material/Grid";
-import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
-import FormGroup from "@mui/material/FormGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
+import { CardContent, CardHeader } from "@mui/material";
 
 const styles = {
     card: { maxWidth: 400 },
