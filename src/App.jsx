@@ -1,14 +1,29 @@
 import { useState } from 'react'
 import './App.css'
-import MemberCard from './components/memberCard/memberCard'
+import MemberCard from './components/memberCard/MemberCard'
+import StatusCard from './components/statusCard/StatusCard'
 
 function App() {
   const [validation, setValidation] = useState()
+  const [status, setStatus] = useState("")
 
-  function validateWithServer(user){
-    console.log("Validating with server")
+  function validateWithCode(user){
     console.log("User: ", user)
-    fetch('http://localhost:8889/v1/validate', {
+    callServer(user, "http://localhost:8889/v1/validatewithcode")
+  }
+
+  function validateWithGoRule(user){
+    console.log("User: ", user)
+    callServer(user, "http://localhost:8889/v1/validatewithgorule")
+  }
+
+  function validateWithGrule(user){
+    console.log("User: ", user)
+    callServer(user, "http://localhost:8889/v1/validatewithgrule")
+  }
+
+  function callServer(user, url){
+    fetch(url, {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(user)
@@ -16,6 +31,7 @@ function App() {
     .then((res) => res.json())
     .then((json) => {
       console.log("Results: ", json);
+      setStatus(json)
       return json.results;
     })
     .catch((error) => {
@@ -26,7 +42,10 @@ function App() {
 
   return (
     <>
-      <MemberCard validateData = {validateWithServer}/>
+      <MemberCard code = {validateWithCode}
+                  gorules = {validateWithGoRule}
+                  grule = {validateWithGrule} />
+      <StatusCard status={status}/>
     </>
   )
 }
