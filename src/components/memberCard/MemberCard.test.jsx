@@ -27,11 +27,9 @@ describe("MemberCard", () => {
         expect(occupationCodeField).toBeInTheDocument();
 
         fireEvent.change(firstNameField,{
-            persist: {}},
             target: { value: 'Aaron'},
         });
         fireEvent.change(lastNameField,{
-            persist: jest.fn(),
             target: { value: 'OBrien'},
         });
 

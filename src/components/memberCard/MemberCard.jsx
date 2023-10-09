@@ -37,7 +37,7 @@ export default function MemberCard( props ){
 
     const [hideError, setHideError] = useState(true)
 
-    function validateRequested(e){
+    function validateUser(e, callbackMethod){
         validateEmptyTextField(firstName, setFirstNameIsError)
         validateEmptyTextField(lastName, setLastNameIsError)
         validateEmptyTextField(birthday, setBirthdayIsError)
@@ -58,7 +58,7 @@ export default function MemberCard( props ){
             user["hasLife"] = hasLife
             user["hasDental"] = hasDental
             user["hasLtd"] = hasLtd
-            props.validateData(user)
+            callbackMethod(user)
         }
     }
 
@@ -96,8 +96,14 @@ export default function MemberCard( props ){
                     </Grid>
                 </CardContent>
                 <CardActions disableSpacing>
-                    <Button variant="outlined" size="medium" color="primary" onClick={(e) => validateRequested(e)}>
-                        Validate
+                    <Button variant="outlined" size="medium" color="primary" onClick={(e) => validateUser(e, props.code)}>
+                        Coded Rules
+                    </Button>
+                    <Button variant="outlined" size="medium" color="primary" onClick={(e) => validateUser(e, props.gorules)}>
+                        GoRules Engine
+                    </Button>
+                    <Button variant="outlined" size="medium" color="primary" onClick={(e) => validateUser(e, props.grule)}>
+                        Grule Engine
                     </Button>
                 </CardActions>
             </Card>
