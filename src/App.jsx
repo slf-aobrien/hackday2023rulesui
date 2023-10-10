@@ -3,8 +3,9 @@ import './App.css'
 import MemberCard from './components/memberCard/MemberCard'
 import StatusCard from './components/statusCard/StatusCard'
 
+import Grid from "@mui/material/Grid";
+
 function App() {
-  const [validation, setValidation] = useState()
   const [status, setStatus] = useState("")
 
   function validateWithCode(user){
@@ -41,12 +42,16 @@ function App() {
   }
 
   return (
-    <>
-      <MemberCard code = {validateWithCode}
-                  gorules = {validateWithGoRule}
-                  grule = {validateWithGrule} />
-      <StatusCard status={status}/>
-    </>
+    <Grid container >
+          <Grid item xs={6} md={6} l={1} xl={3}>
+            <MemberCard code = {validateWithCode}
+                        gorules = {validateWithGoRule}
+                        grule = {validateWithGrule} />
+          </Grid>
+          <Grid item xs={6} md={6} l={1} xl={3}>
+            <StatusCard status={status}/>
+          </Grid>
+      </Grid>
   )
 }
 
