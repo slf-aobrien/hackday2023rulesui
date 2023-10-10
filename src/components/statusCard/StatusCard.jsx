@@ -19,7 +19,7 @@ export default function StatusCard( props ){
             <Card sx = {styles.card}>
                 <CardHeader sx= {styles.header} title="Status"/>
                 <CardContent>
-                Detail Cost: {props.status.message}<br/>
+                Detail Cost: {props.status.message}<br/> 
                 Total Cost: {props.status.extra}<br/>
                 Elapsed Time: {props.status.elapsedTime}<br/>
                 </CardContent> 
