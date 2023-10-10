@@ -18,7 +18,7 @@ describe("MemberCard", () => {
         }} />);
         const firstNameField = screen.getByLabelText("First Name");
         const lastNameField = screen.getByLabelText("Last Name");
-        const birthdayField = screen.getByLabelText("Birthday");
+        const birthdayField = screen.getByLabelText("Birthday (mm/dd/yyyy)");
         const occupationCodeField = screen.getByLabelText("Occupation Code");
 
         expect(firstNameField).toBeInTheDocument();
@@ -56,11 +56,11 @@ describe("MemberCard", () => {
         // });
 
         expect (firstNameField.value).toBe("Aaron");
-        // expect (lastNameField.value).toBe("OBrien");
+        expect (lastNameField.value).toBe("OBrien");
        // expect (birthdayField.value).toBe("someday");
         //expect (occupationCodeField.value).toBe("risky");
 
-        const button = screen.getByText("Validate");
+        const button = screen.getByText("Coded Rules");
         expect(button).toBeInTheDocument();
         fireEvent.click(button);
     });

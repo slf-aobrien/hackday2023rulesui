@@ -85,15 +85,15 @@ export default function MemberCard( props ){
                 <CardContent>
                     <Grid container>
                         <Grid item xs={6} m={1} >
-                            <TextField id="standard-basic" data-testid="firstNameId" error={firstNameIsError} label="First Name" value={firstName} variant="standard" 
+                            <TextField id="firstname-input" data-testid="firstNameId" error={firstNameIsError} label="First Name" value={firstName} variant="standard"
                                 onChange={(e) => setFirstName(e.target.value)}/>
-                            <TextField id="standard-basic" error={lastNameIsError} label="Last Name" variant="standard"
+                            <TextField id="lastname-input" error={lastNameIsError} label="Last Name" variant="standard"
                                 onChange={(e) => setLastName(e.target.value)}/>
-                            <TextField id="standard-basic" error={genderIsError} label="Sex (M/F/NP)" variant="standard"
+                            <TextField id="gender-input" error={genderIsError} label="Sex (M/F/NP)" variant="standard"
                                 onChange={(e) => setGender(e.target.value)}/>
-                            <TextField id="standard-basic" error={birtydayIsError} label="Birthday (mm/dd/yyyy)" variant="standard" 
+                            <TextField id="birthday-input" error={birtydayIsError} label="Birthday (mm/dd/yyyy)" variant="standard"
                                 onChange={(e) => setBirthDay(e.target.value)}/>
-                            <TextField id="standard-basic" error={ocCodeIsError} label="Occupation Code" variant="standard" 
+                            <TextField id="occode-input" error={ocCodeIsError} label="Occupation Code" variant="standard"
                                 onChange={(e) => setOcCode(e.target.value)}/>
                             <FormGroup>
                                 <FormControlLabel control={<Checkbox checked={hasLife} onChange={(e)=>{ hasLife ? setHasLife(false) : setHasLife(true)} }/>} label="Life Insurance" />
