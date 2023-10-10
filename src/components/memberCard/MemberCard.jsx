@@ -25,6 +25,9 @@ export default function MemberCard( props ){
     const [lastName, setLastName] = useState("")
     const [lastNameIsError, setLastNameIsError] = useState(false)
 
+    const [gender, setGender] = useState("")
+    const [genderIsError, setGenderIsError] = useState(false)
+
     const [birthday, setBirthDay] = useState("")
     const [birtydayIsError, setBirthdayIsError] = useState(false)
 
@@ -42,10 +45,12 @@ export default function MemberCard( props ){
         validateEmptyTextField(lastName, setLastNameIsError)
         validateEmptyTextField(birthday, setBirthdayIsError)
         validateEmptyTextField(ocCode, setOcCodeIsError)
+        validateEmptyTextField(gender, setGenderIsError)
 
         if (firstName === '' || 
             lastName === '' || 
             birthday === '' || 
+            gender === '' ||
             ocCode === '' ){
             setHideError(false);
         } else {
@@ -53,6 +58,7 @@ export default function MemberCard( props ){
             var user = {}
             user["firstName"] = firstName
             user["lastName"] = lastName
+            user["gender"] = gender
             user["birthday"] = birthday
             user["ocCode"] = ocCode
             user["hasLife"] = hasLife
@@ -83,7 +89,9 @@ export default function MemberCard( props ){
                                 onChange={(e) => setFirstName(e.target.value)}/>
                             <TextField id="standard-basic" error={lastNameIsError} label="Last Name" variant="standard"
                                 onChange={(e) => setLastName(e.target.value)}/>
-                            <TextField id="standard-basic" error={birtydayIsError} label="Birthday" variant="standard" 
+                            <TextField id="standard-basic" error={genderIsError} label="Sex (M/F/NP)" variant="standard"
+                                onChange={(e) => setGender(e.target.value)}/>
+                            <TextField id="standard-basic" error={birtydayIsError} label="Birthday (mm/dd/yyyy)" variant="standard" 
                                 onChange={(e) => setBirthDay(e.target.value)}/>
                             <TextField id="standard-basic" error={ocCodeIsError} label="Occupation Code" variant="standard" 
                                 onChange={(e) => setOcCode(e.target.value)}/>
